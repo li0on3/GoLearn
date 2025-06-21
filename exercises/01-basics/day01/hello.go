@@ -7,19 +7,42 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello World")
-	fmt.Println(getTime())
+	fmt.Println("=== Go环境信息 ===")
+	fmt.Printf("Go版本: %s\n", getVersion())
+	fmt.Printf("当前时间: %s\n", getTimeToTime())
+	fmt.Println(getTimeToString())
+	fmt.Println(getTimeToTime())
 	fmt.Println(getVersion())
-	getTime()
+	getTimeToString()
+	Hello()
 	getVersion()
 }
 
-func getTime() string {
-	return time.DateTime
+//func getTime() string {
+//	return time.DateTime
+//}
+
+func getTimeToString() string {
+	return time.Now().Format(time.RFC850)
+}
+
+func getTimeToTime() time.Time {
+	return time.Now()
 }
 
 func getVersion() string {
 	return runtime.Version()
+}
+
+func Hello() {
+	hour := time.Now().Hour()
+	if hour < 12 {
+		fmt.Println("Good morning!")
+	} else if hour < 17 {
+		fmt.Println("Good afternoon!")
+	} else {
+		fmt.Println("Good evening!")
+	}
 }
 
 // 深入思考
