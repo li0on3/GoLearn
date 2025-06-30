@@ -38,7 +38,7 @@
    - `getTimeToString` → 建议改为 `getCurrentTimeString`
    - `getTimeToTime` → 建议改为 `getCurrentTime`
 
-4. **缺少函数注释**
+4. **缺少函数注释**`````````
    ```go
    // getCurrentTimeString 返回格式化的当前时间字符串
    func getCurrentTimeString() string {
