@@ -16,6 +16,7 @@ func main() {
 	getTimeToString()
 	Hello()
 	getVersion()
+	analyzeMemoryEfficiency()
 }
 
 //func getTime() string {
@@ -42,6 +43,24 @@ func Hello() {
 		fmt.Println("Good afternoon!")
 	} else {
 		fmt.Println("Good evening!")
+	}
+}
+
+func analyzeMemoryEfficiency() {
+	// 在 256 附近，内存分配器的行为变化
+	// 小于 256: 通常在小对象池中分配
+	// 大于 256: 可能需要更复杂的分配策略
+
+	fmt.Println("=== Memory allocation patterns ===")
+
+	// 模拟不同容量 slice 的内存使用
+	testSizes := []int{200, 250, 256, 300, 500, 1000, 1024, 1500}
+
+	for _, size := range testSizes {
+		slice := make([]int64, size) // 8 bytes per int64
+		actualBytes := size * 8
+		fmt.Printf("Elements: %d, Bytes: %d, Cap: %d\n",
+			size, actualBytes, cap(slice))
 	}
 }
 
